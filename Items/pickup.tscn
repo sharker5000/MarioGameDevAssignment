@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dy7gqyi8xvgjv"]
+
+[ext_resource type="Script" uid="uid://1yqbus3hjcll" path="res://Items/pickup.gd" id="1_weqpt"]
+[ext_resource type="Texture2D" uid="uid://bcc04onpmm5b7" path="res://Items/Fruit Basket.png" id="2_amdaw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dp200"]
+radius = 7.0
+
+[node name="pickup" type="CharacterBody2D" unique_id=967220715]
+collision_layer = 4
+script = ExtResource("1_weqpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285304618]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_dp200")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=792438721]
+position = Vector2(0, -8)
+texture = ExtResource("2_amdaw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1128914400]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=720329908]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_dp200")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

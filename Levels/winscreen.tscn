@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dn2qyay37vjga"]
+
+[ext_resource type="Script" uid="uid://bed8xrt5c430g" path="res://Levels/winscreen.gd" id="1_ijdhs"]
+
+[sub_resource type="Gradient" id="Gradient_02un3"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(0.33, 0.17600001, 0, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ijdhs"]
+gradient = SubResource("Gradient_02un3")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.491453, 0.22222222)
+
+[sub_resource type="Gradient" id="Gradient_811yh"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(1, 0.8086667, 0.59000003, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cnbnr"]
+gradient = SubResource("Gradient_811yh")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.47435898, 0.982906)
+
+[node name="Winscreen" type="Node2D" unique_id=529275251]
+script = ExtResource("1_ijdhs")
+
+[node name="Label" type="Label" parent="." unique_id=103019658]
+offset_left = 42.0
+offset_top = 317.0
+offset_right = 1123.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 32
+text = "Moss had enough ingredients to make an amazing meal for everyone! 
+                                     They were stuffed for days!"
+
+[node name="Label2" type="Label" parent="." unique_id=662035166]
+offset_left = 432.0
+offset_top = 138.0
+offset_right = 715.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0.98333335, 1, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "YOU WIN"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1506275237]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 369.0
+offset_top = 474.0
+offset_right = 733.0
+offset_bottom = 609.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = SubResource("GradientTexture2D_ijdhs")
+texture_hover = SubResource("GradientTexture2D_cnbnr")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=286541649]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -44.0
+offset_right = 95.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 64
+text = "Return"
+uppercase = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

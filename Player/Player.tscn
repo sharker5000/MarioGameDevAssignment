@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://br6earxjhjt2i"]
+
+[ext_resource type="Texture2D" uid="uid://bsnp5nd60lfnf" path="res://Player/Moss Template-Sheet.png" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://75r1e2qp4mh6" path="res://Player/player.gd" id="1_q3lat"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ffbi"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp200"]
+size = Vector2(12, 4)
+
+[node name="Player" type="CharacterBody2D" unique_id=1946244412]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_q3lat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1181731412]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_1ffbi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=932071470]
+position = Vector2(-1, -24)
+texture = ExtResource("1_3qydi")
+hframes = 11
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=402222784]
+position = Vector2(0, -15)
+zoom = Vector2(3, 3)
+limit_left = -832
+limit_top = -160
+limit_right = 2496
+limit_bottom = 64
+
+[node name="stompbox" type="Area2D" parent="." unique_id=2071127156]
+collision_layer = 2
+collision_mask = 8
+
+[node name="hitbox" type="CollisionShape2D" parent="stompbox" unique_id=1714532363]
+shape = SubResource("RectangleShape2D_dp200")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1795796832]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="body_entered" from="stompbox" to="." method="_on_stompbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

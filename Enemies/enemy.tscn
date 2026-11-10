@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bikaf4nexxdld"]
+
+[ext_resource type="Script" uid="uid://bhsiveb2qwbq" path="res://Enemies/enemy.gd" id="1_3ih25"]
+[ext_resource type="Texture2D" uid="uid://dt1ydhr3jmsnc" path="res://Enemies/Acorn Bum-Sheet.png" id="2_bxkaj"]
+[ext_resource type="PackedScene" uid="uid://pglgd0yq8l76" path="res://Events/killbox.tscn" id="3_47qgu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3lat"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxkaj"]
+radius = 5.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2078310700 groups=["enemy"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_3ih25")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=285314615]
+position = Vector2(0, -9)
+rect = Rect2(-20, -14, 41, 33)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319346198]
+position = Vector2(0, -16)
+texture = ExtResource("2_bxkaj")
+hframes = 6
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=545275650]
+position = Vector2(0, -7)
+target_position = Vector2(-9, 0)
+collision_mask = 9
+
+[node name="Killbox" parent="." unique_id=1353139988 instance=ExtResource("3_47qgu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox" unique_id=1389062780]
+position = Vector2(0, -6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_q3lat")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=729270492]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_bxkaj")

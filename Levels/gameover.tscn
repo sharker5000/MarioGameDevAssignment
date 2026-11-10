@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dbpeqgltpu6gc"]
+
+[ext_resource type="Script" uid="uid://d4akw1nyka5sa" path="res://Levels/gameover.gd" id="1_3vorf"]
+
+[sub_resource type="Gradient" id="Gradient_02un3"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(0.33, 0.17600001, 0, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bvgng"]
+gradient = SubResource("Gradient_02un3")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.491453, 0.22222222)
+
+[sub_resource type="Gradient" id="Gradient_811yh"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(1, 0.8086667, 0.59000003, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d3ojd"]
+gradient = SubResource("Gradient_811yh")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.47435898, 0.982906)
+
+[node name="gameover" type="Node2D" unique_id=1107620175]
+script = ExtResource("1_3vorf")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=454993253]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 378.0
+offset_top = 473.0
+offset_right = 742.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = SubResource("GradientTexture2D_bvgng")
+texture_hover = SubResource("GradientTexture2D_d3ojd")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=670267308]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -44.0
+offset_right = 95.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 64
+text = "Return"
+uppercase = true
+
+[node name="Label" type="Label" parent="." unique_id=1033109830]
+offset_left = 276.0
+offset_top = 298.0
+offset_right = 952.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 32
+text = "You failed to help Moss save the village. 
+      Now all the people will starve :("
+
+[node name="Label2" type="Label" parent="." unique_id=909978097]
+offset_left = 381.0
+offset_top = 103.0
+offset_right = 761.0
+offset_bottom = 196.0
+theme_override_colors/font_color = Color(0.94, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

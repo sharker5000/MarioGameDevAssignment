@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d0us334yukqog"]
+
+[ext_resource type="Script" uid="uid://btss26v6huacm" path="res://Levels/intro.gd" id="1_811yh"]
+
+[sub_resource type="Gradient" id="Gradient_02un3"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(0.33, 0.17600001, 0, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_811yh"]
+gradient = SubResource("Gradient_02un3")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.491453, 0.22222222)
+
+[sub_resource type="Gradient" id="Gradient_811yh"]
+offsets = PackedFloat32Array(0.115606934, 1)
+colors = PackedColorArray(1, 0.8086667, 0.59000003, 1, 0.46, 0.29256, 0.101200014, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nee6c"]
+gradient = SubResource("Gradient_811yh")
+fill_from = Vector2(0.46581197, 0.71794873)
+fill_to = Vector2(0.47435898, 0.982906)
+
+[node name="Intro" type="Node2D" unique_id=1529766664]
+script = ExtResource("1_811yh")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=699950014]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 370.0
+offset_top = 476.0
+offset_right = 734.0
+offset_bottom = 611.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = SubResource("GradientTexture2D_811yh")
+texture_hover = SubResource("GradientTexture2D_nee6c")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=2078857239]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -44.0
+offset_right = 95.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 64
+text = "Start"
+uppercase = true
+
+[node name="Label" type="Label" parent="." unique_id=1134443184]
+offset_left = 249.0
+offset_top = 65.0
+offset_right = 867.0
+offset_bottom = 343.0
+theme_override_font_sizes/font_size = 32
+text = "      The living acorns of the nearby 
+woods stole everyone's food! It's up to 
+Moss to help gather the stolen 
+ingredients and make a tasty meal for 
+the people of the village!"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
